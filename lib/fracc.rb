@@ -1,4 +1,4 @@
-class fraccion
+class Fraccion
    
    attr_reader :numerador, :denominador
    
@@ -8,7 +8,7 @@ class fraccion
             @numerador = numerador
             @denominador = denominador
         end
-            #simplificamos la fraccion con el max_com_div
+            #simplificamos la Fraccion con el max_com_div
             @numerador, @denominador = numerador/max_com_div, denominador/max_com_div
     end
     
@@ -40,28 +40,28 @@ class fraccion
     end
     
     #MULTIPLICAR
-     def *(fraccion)
-        fraccion.new(@numerador * fraccion.numerador, @denominador * fraccion.denominador)
+     def *(object)
+        Fraccion.new(@numerador * object.numerador, @denominador * object.denominador)
      end
      
     #DIVISION
-    def /(fraccion)
-        fraccion.new(@numerador / fraccion.numerador, @denominador / fraccion.denominador)
+    def /(object)
+        Fraccion.new(@numerador / object.numerador, @denominador / object.denominador)
     end
      
      #RESTAR
-     def -(fraccion)
+     def -(object)
       #    Point.new(@x * -1, @y * -1)
       
-        aux = mcm(@denominador, fraccion.denominador)
-        fraccion.new((((aux*@numerador)/@denominador)-(aux*fraccion.numerador)/fraccion.denominador),aux)
+        aux = mcm(@denominador, Fraccion.denominador)
+        Fraccion.new((((aux*@numerador)/@denominador)-(aux * object.numerador)/object.denominador),aux)
      end
     
     #SUMAR
-     def + (fraccion)
-       # Point.new(@x + fraccion. x, @y + fraccion.y)
-        aux = mcm(@denominador, fraccion.denominador)
-        fraccion.new((((aux*@numerador)/@denominador)+(aux*fraccion.numerador)/fraccion.denominador),aux)
+     def + (object)
+       # Point.new(@x + Fraccion. x, @y + Fraccion.y)
+        aux = mcm(@denominador, object.denominador)
+        Fraccion.new((((aux*@numerador)/@denominador)+(aux * object.numerador) / object.denominador),aux)
        
      end
     

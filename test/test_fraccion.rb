@@ -13,6 +13,7 @@ class Testfraccion < Test::Unit::TestCase
     assert_equal("(3/4)", @frac1.to_s)
     assert_equal("(12/20)", (@frac2*@frac1).to_s) #prueba bien lo que lo saca sin simplificar...
     assert_equal("(31,20)", (@frac1 + @frac2).to_s)
+    assert_equal("(-1,20)", (@frac1 - @frac2).to_s)
   end
   def test_type_check
     assert_raise(RuntimeError) {Point.new('1','1')}
